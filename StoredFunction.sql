@@ -72,5 +72,21 @@ mysql> select cid,display(camount) from customer;
 |   4 | Silver           |
 +-----+------------------+
 4 rows in set (0.00 sec)
+
+mysql> create view cr_level(cid,level) as select cid,display(camount) from customer;
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> select * from cr_level;
++-----+----------+
+| cid | level    |
++-----+----------+
+|   1 | Gold     |
+|   2 | Platinum |
+|   3 | Gold     |
+|   4 | Silver   |
++-----+----------+
+4 rows in set (0.00 sec)
+
+
 */
 
