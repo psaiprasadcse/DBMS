@@ -78,6 +78,26 @@ mysql> select * from emp;
 +-----+--------+---------+-----------+------+--------+
 8 rows in set (0.00 sec)
 
+mysql> call empgrade(675);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select * from emp;
++-----+--------+---------+-----------+------+--------+
+| eno | ename  | esal    | edesg     | dno  | grade  |
++-----+--------+---------+-----------+------+--------+
+| 101 | Sai    | 1234.12 | Prof      |  123 | First  |
+| 102 | Rahul  | 3223.21 | Prof      |  103 | Second |
+| 256 | Rushi  | 4321.34 | Prof      |  323 | NULL   |
+| 265 | yash   | 1256.23 | proffesor |  125 | second |
+| 432 | abhi   | 7654.00 | assoc     |   21 | first  |
+| 562 | Sai    | 2343.34 | Asst      |  345 | First  |
+| 652 | Sai    | 5454.65 | Assoc     |  342 | Two    |
+| 675 | Rakesh | 3221.23 | Prof      |  232 | Two    |
++-----+--------+---------+-----------+------+--------+
+8 rows in set (0.00 sec)
+
+Note: eno 675 Grade is updated to TWO
+
 
 */
 
