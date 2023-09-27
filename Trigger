@@ -1,1 +1,56 @@
 
+CREATE TRIGGER trigger_name (AFTER | BEFORE) (INSERT | UPDATE | DELETE)  
+ON table_name FOR EACH ROW    
+ BEGIN    
+        --variable declarations    
+        --trigger code    
+END;
+
+CREATE TABLE employee(  
+    name varchar(45) NOT NULL,    
+    occupation varchar(35) NOT NULL,    
+    working_date date,  
+    working_hours varchar(10)  
+);  
+
+
+
+
+CREATE TRIGGER emp_set
+BEFORE INSERT ON employee FOR EACH ROW 
+BEGIN 
+IF NEW.working_hours < 0 THEN SET NEW.working_hours = 0; 
+END IF; 
+END
+
+
+INSERT INTO employee VALUES  ('Rakesh', 'Painter', '2020-10-08', 14);  
+INSERT INTO employee VALUES  ('Jauesh', 'Clerk', '2020-10-08', -11);  
+
+
+
+
+
+CREATE TABLE employee_backup(  
+    name varchar(45) NOT NULL,    
+    occupation varchar(35) NOT NULL,    
+    working_date date,  
+    working_hours varchar(10)  
+); 
+
+CREATE TRIGGER `emp_bk` AFTER DELETE ON `employee`
+FOR EACH ROW 
+BEGIN 
+insert into employee_backup values(OLD.name,OLD.occupation,OLD.working_date,OLD.working_hours); 
+END
+
+
+
+
+delete from employee where name='Robin';
+
+
+
+
+
+
